@@ -6,4 +6,7 @@ def Hello_fucking_world():
 
 @app.route('/123')
 def image():
-    return '<img src="123.jpg">'
+    return '<img src="123.jpg">' 
+
+if __name__ == "__main__":
+    app.run(debug=True)
