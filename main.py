@@ -13,7 +13,7 @@ def Hello_fucking_world():
 
 @app.route('/gettemp')
 def gettemp():
-    return str(data.t) "teste temp" 
+    return str(data.t) 
 
 @app.route('/settemp/<temp2>')
 def settemp(temp2):
@@ -25,7 +25,7 @@ def gethumidade():
     if data.h==0:
         return "sem conexão com sensor"
     else:
-        return data.h "teste humi"
+        return data.h
 
 @app.route('/sethumidade/<humidade2>')
 def sethumidade(humidade2):
