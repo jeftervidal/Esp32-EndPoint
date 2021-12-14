@@ -13,7 +13,7 @@ def Hello_fucking_world():
 
 @app.route('/gettemp')
 def gettemp():
-    return str(data.t + "Temperatura atual - São Paulo 14/12/2021")
+    return str(data.t + Temperatura atual - São Paulo 14/12/2021)
 
 @app.route('/settemp/<temp2>')
 def settemp(temp2):
