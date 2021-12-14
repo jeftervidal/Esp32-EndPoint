@@ -13,7 +13,7 @@ def Hello_fucking_world():
 
 @app.route('/gettemp')
 def gettemp():
-    return str(data.t)
+    return str(data.t) + "Temperatura atual - São Paulo 14/12/2021"
 
 @app.route('/settemp/<temp2>')
 def settemp(temp2):
@@ -23,9 +23,9 @@ def settemp(temp2):
 @app.route('/gethumidade')
 def gethumidade():
     if data.h==0:
-        return "sem conexão com sensor"
+        return "sem conexão com sensor - Sem conexão com ESP32 "
     else:
-        return data.h
+        return str (data.h) + "humidade atual - São Paulo 14/12/2021"
 
 @app.route('/sethumidade/<humidade2>')
 def sethumidade(humidade2):
