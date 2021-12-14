@@ -15,8 +15,8 @@ def gettemp():
         return temp
 @app.route('/settemp/<temp2>')
 def settemp(temp2):
-    temp=temp2
-    return "ok"
+    temp=float(temp2)
+    return "ok - " + str(temp) 
 
 @app.route('/gethumidade')
 def gethumidade():
