@@ -1,10 +1,13 @@
 from flask import Flask
+from datetime import datetime
+
 app=Flask(__name__)
 
 class TempHum():
-    t = None
-    h = None
-
+    t = 0
+    h = 0
+    date_t=datetime.today()    
+    date_h=datetime.today()
 data = TempHum()
 
 @app.route('/')
@@ -13,24 +16,24 @@ def Hello_fucking_world():
 
 @app.route('/gettemp')
 def gettemp():
-    return str(data.t) 
+    return f"Sensor de temperatura - São Paulo - Casa do Jefter {data.date_t.day}/{data.date_t.month}/{data.date_t.year} - {data.date_t.hour}:{data.date_t.minute}:{data.date_t.second} <br> {data.t} Graus Celsius"
 
 @app.route('/settemp/<temp2>')
 def settemp(temp2):
     data.t=float(temp2)
-    return "ok - " + str(data.t) 
+    data.date_t=datetime.today()
+
+    return str(data.t) 
 
 @app.route('/gethumidade')
 def gethumidade():
-    if data.h==0:
-        return "sem conexão com sensor"
-    else:
-        return data.h
-
+    return f"Sensor de temperatura - São Paulo - Casa do Jefter {data.date_h.day}/{data.date_h.month}/{data.date_h.year} - {data.date_h.hour}:{data.date_h.minute}:{data.date_h.second} <br> {data.h} %"
+   
 @app.route('/sethumidade/<humidade2>')
 def sethumidade(humidade2):
-    data.h=humidade2
-    return "ok"
+    data.h=float(humidade2)
+    data.date_h=datetime.today()
+    return str(data.h) 
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080,debug=True)
