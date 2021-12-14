@@ -9,10 +9,8 @@ def Hello_fucking_world():
 
 @app.route('/gettemp')
 def gettemp():
-    if temp==0:
-        return "sem conexão com sensor"
-    else:
-        return temp
+    return str(temp)
+    
 @app.route('/settemp/<temp2>')
 def settemp(temp2):
     temp=float(temp2)
