@@ -19,13 +19,13 @@ def settemp(temp2):
     return "ok"
 
 @app.route('/gethumidade')
-def gettemp():
+def gethumidade():
     if humidade==0:
         return "sem conexão com sensor"
     else:
         return humidade
 @app.route('/sethumidade/<humidade2>')
-def settemp(humidade2):
+def sethumidade(humidade2):
     humidade=humidade2
     return "ok"
 
