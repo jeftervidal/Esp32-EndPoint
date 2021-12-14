@@ -1,7 +1,11 @@
 from flask import Flask
 app=Flask(__name__)
-temp=0
-humidade=0
+
+class TempHum():
+    t = None
+    h = None
+
+data = TempHum()
 
 @app.route('/')
 def Hello_fucking_world():
@@ -9,22 +13,23 @@ def Hello_fucking_world():
 
 @app.route('/gettemp')
 def gettemp():
-    return str(temp)
-    
+    return str(data.t)
+
 @app.route('/settemp/<temp2>')
 def settemp(temp2):
-    temp=float(temp2)
-    return "ok - " + str(temp) 
+    data.t=float(temp2)
+    return "ok - " + str(data.t) 
 
 @app.route('/gethumidade')
 def gethumidade():
-    if humidade==0:
+    if data.h==0:
         return "sem conexão com sensor"
     else:
-        return humidade
+        return data.h
+
 @app.route('/sethumidade/<humidade2>')
 def sethumidade(humidade2):
-    humidade=humidade2
+    data.h=humidade2
     return "ok"
 
 if __name__ == "__main__":
